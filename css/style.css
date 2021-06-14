@@ -1,1 +1,83 @@
-/* Style */
+*{
+    margin:0;
+    padding: 0;
+}
+
+:root{
+    --red: #DA4167;
+    --blue:#308EF4;
+    --dark-blue:#2E4057;
+    --yellow:#F4D35E;
+    --light: #F6D8AE;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+/*Header*/
+header{
+    background:var(--light);
+    height:15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-blue);
+}
+
+/* --- Main Page --- */
+section{
+    width: 100%;
+    height: 85%;
+    background:var(--dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1vh;
+}
+
+/*nav*/
+nav{
+    height: 3%;
+    width: 100%;
+    position: absolute;
+    margin-top: 4vh;
+    background:var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8vw;
+    color: var(--dark-blue);
+}
+/* main buttons */
+article{
+    height: 70%;
+    width: 40%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;;
+}
+article>a{
+    color: var(--dark-blue);
+    text-decoration: none;
+    font-size: 2.2vh;
+}
+#brief1{
+    background:var(--red);
+}
+#brief2{
+    background:var(--yellow);
+}
+/*footer*/
+footer{
+    background:var(--blue);
+    position: absolute;
+    height: 30vh;
+    width: 100%;
+    bottom: 0;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 1</title>
+</head>
+<body>
+    <p id="var1"></p>
+    <br>
+    <p id="var2"></p>
+    <br>
+    <input type="button" value="Swap" onclick="swapVariable()">
+    <script>
+        let textVar1 = document.getElementById("var1");
+        let textVar2 = document.getElementById("var2");
+
+         /* on demande valeur des variables */
+        let variable1 = prompt('ma variable 1 = ?');
+        let variable2 = prompt('ma variable 2 = ?');
+        /*on les affiches à l'écran */
+        textVar1.textContent = 'Variable 1:' + variable1;
+        textVar2.textContent = 'Variable 2:' + variable2;
+
+        function swapVariable(){
+            let v1Value = variable1;
+            let v2Value = variable2;
+    
+        variable1 = v2Value;
+        variable2 = v1Value;
+
+        textVar1.textContent = 'Variable 1:' + variable1;
+        textVar2.textContent = 'Variable 2:' + variable2;
+        }
+    </script>
+</body>
+</html>
