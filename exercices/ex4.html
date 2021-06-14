@@ -7,6 +7,24 @@
     <title>Exercice 4</title>
 </head>
 <body>
-    
+    <p></p>
+    <script>
+        let nombre = prompt('nombre à incrémenter')
+        let p = document.querySelector('p');
+
+        if (isNaN(nombre)){
+            alert('entrez un nombre');
+            document.location.reload();
+        }else{
+            nombre++
+            p.textContent = nombre;
+         }   
+
+        //version console
+        function increment(a){
+            a++;
+            return a;
+          }   
+    </script>
 </body>
 </html>

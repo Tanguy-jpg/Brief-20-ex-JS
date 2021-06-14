@@ -7,6 +7,26 @@
     <title>Exercice 5</title>
 </head>
 <body>
-    
+    <p></p>
+    <input type="button" value="recommencer" onclick="document.location.reload();">
+
+    <script>
+        //version console
+        function getSurface(a,b){
+            return (a*b)/2
+        }
+        //version visible 
+        let base = prompt('base ?');
+        let hauteur = prompt('hauteur ?');
+        let surface = (base*hauteur)/2;
+
+        if (isNaN(base) || isNaN(hauteur)){
+            alert('Veuillez entrer des nombres');
+            document.location.reload();
+        }else {
+            let p = document.querySelector('p');
+            p.textContent = 'Surface =' + surface;
+        }
+    </script>
 </body>
 </html>

@@ -7,6 +7,62 @@
     <title>Exercice 3</title>
 </head>
 <body>
+    <p></p>
+    <input type="button" value="Au carré" onclick="auCarre();">
+    <hr>
+    <input type="button" value="Somme" onclick="funcSomme();">
+    <p id="p2"></p>
+    <hr>
+    <input type="button" value="Minute -> Second" onclick="minToSecV()">
+    <p id="p3" ></p>
     
+    <script>
+        // exercice 3-1
+        function auCarre(){
+            let number = prompt('veuillez entrer le numéro dont vous voulez la puissance de 2');
+            let p = document.querySelector('p');
+            
+            if (isNaN(number)){
+                alert('veuillez entrer un nombre');
+            }else {
+            p.textContent = number + "² = " + number*number;
+            }
+        }
+
+        //exercice 3-2 (version visible)
+        function funcSomme(){
+            let firstNumber= prompt('premier nombre');
+            let secondNumber = prompt('deuxième nombre');
+
+            if (isNaN(firstNumber)||isNaN(secondNumber)){
+                alert('veuillez entrer des nombres');
+            }else {
+                let somme= +(firstNumber) + +(secondNumber);
+                let p = document.getElementById('p2');
+        
+                  p.textContent = 'somme: '+ somme;
+          }
+        }
+        //version console
+        function addition(a, b){
+            return a+b;
+        }
+
+        //exercice 3-3 (version console)
+        function minToSec(a){
+            return a*60+'s';
+        }
+        //version visible
+        function minToSecV(){
+            let p = document.getElementById('p3');
+            let minute = prompt('Minute');
+            let convert = minute*60;
+            if (isNaN(minute)){
+                alert('veuillez entrer un nombre');
+            }else {
+            p.textContent = minute + 'min --> ' + convert +'s';
+            }   
+        }     
+    </script>
 </body>
 </html>

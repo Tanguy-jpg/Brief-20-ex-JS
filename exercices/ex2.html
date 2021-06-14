@@ -7,6 +7,26 @@
     <title>Exercice 2</title>
 </head>
 <body>
-    
+    <p></p>
+
+    <script>
+        let toto= prompt('Name: ');
+
+        //à partir de ça
+        let Nom = toto;
+        let Age = 30;
+        let Homme = true;
+
+        let p = document.querySelector('p');
+        
+        p.textContent += 'Name: ' + Nom + ' | Age: '+Age+' | gender: ';
+
+        if (Homme = true){
+            p.textContent += 'Male';
+        } else {
+            p.textContent += 'Female';
+               }
+        
+    </script>
 </body>
 </html>
