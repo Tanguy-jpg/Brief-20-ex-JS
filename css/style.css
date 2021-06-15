@@ -89,16 +89,18 @@ article{
 }
 #brief2{
     background:var(--yellow);
+    gap: 2vh;
 }
 /*content style*/
 article>a{
     color: var(--dark-blue);
     text-decoration: none;
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content:center;
 }
 article>a:hover{
-    background: rgb(92, 161, 208);
+    background:var(--blue);
 }
 article>p{
     text-decoration: underline var(--dark-blue) ;
