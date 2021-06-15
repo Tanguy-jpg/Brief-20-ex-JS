@@ -144,11 +144,3 @@ footer{
         transform: translate(200vh,20vh);
     }
 }
-
-@keyframes fish2 {
-    0%,100%{
-    }
-    50%{
-        transform: translate(2vh, 2vh);
-    }
-}
