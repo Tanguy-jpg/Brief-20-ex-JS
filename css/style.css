@@ -16,6 +16,7 @@ body{
     width: 100%;
     font-family: 'Hammersmith One', sans-serif;
     color: var(--dark-blue);
+    overflow: hidden;
 }
 
 /*Header*/
@@ -67,6 +68,14 @@ article>a{
     color: var(--dark-blue);
     text-decoration: none;
     font-size: 1.9vh;
+    width: 100%;
+    text-align: center;
+}
+article>a:hover{
+    background: rgb(92, 161, 208);
+}
+article>p{
+    text-decoration: underline var(--dark-blue) ;
 }
 #brief1{
     background:var(--red);
@@ -81,4 +90,14 @@ footer{
     height: 30vh;
     width: 100%;
     bottom: 0;
+    animation: vagues 10s ease infinite;
+    transform: scale(1.3);
+}
+
+@keyframes vagues {
+    0%, 100% {
+        border-radius: 66% 34% 12% 15%
+    }
+    50% {
+        border-radius: 19% 75% 22% 17%}
 }
