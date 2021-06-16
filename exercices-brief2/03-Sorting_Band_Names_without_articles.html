@@ -51,9 +51,12 @@
     const ul = document.querySelector('#bands'); //définir l'endroit (ici: ul#bands) où va aller la liste contenue dans le tableau souhaité(ici: bands)
     const bandListed = []; //définir le tableau dans lequel on va stocker le nouvel ordre
     const ordre = [];
+    bands.sort();
 
     for (let i=0; i<bands.length; i++){
       let s = bands[i].split(" ");
+      let v = bands[i].split(" ");
+      ordre.push(v);
       bandListed.push(s);                                             //Split(détache les mots) de bands, puis envoie le tableau dans banListed
       s[0]==="The" || s[0]==="A" || s[0]==="An"? s.shift():'';        //Supprime les premier mots si ils sont "the" "A" ou "An"
     }
@@ -61,15 +64,24 @@
     bandListed.sort();          //trie le nouveau tableau sans les articles
 
     for (let i=0; i<bands.length; i++){
-      bands.splice(i,1,bands[1]);         //réatribue les place aux elements dans l'ordre
+    console.log(i+' '+bandListed[i][0]);
+    console.log(i+' '+ordre[i][0]);
+}
+
+    // for (let i=0; i<bands.length; i++){
+    //   bandListed[i][bandListed[i][length-1]];
+    // }
+
+    for (let i=0; i<bands.length; i++){
+      bands.splice(i,1,bandListed[i]);         //réatribue les place aux elements dans l'ordre
     } 
+
 
     for (let i=0; i<bands.length; i++){
       let li = document.createElement('li');              //crée l'élément li et le "push" dans ul
-      li.appendChild(document.createTextNode(bands[i]));
+      li.appendChild(document.createTextNode(bands[i].join(' ')));
       ul.appendChild(li);
     }
-
 </script>
 
 </body>
