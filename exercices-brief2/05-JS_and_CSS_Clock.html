@@ -53,7 +53,7 @@
       position: relative;
       width: 100%;
       height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
+      transform: rotate(90deg) translateY(-3px); /* account for the height of the clock hands */
     }
 
     .hand {
@@ -62,13 +62,38 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: bottom right;
+    }
+
+    .hour-hand{
+      background: red;
+    }
+
+    .min-hand{
+      background: green;
     }
 
   </style>
 
   <script>
+    setInterval(function(){ 
+    let time= [];
+      let hands = document.querySelectorAll('.hand');
+      let date = new Date();
+      let seconds = date.getSeconds();
+      let minutes = date.getMinutes();
+      let hours = date.getHours();
 
+      var secondsAngle = (360 / 100) * ((seconds / 60) * 100);
+      var minutesAngle = (360 / 100) * ((minutes / 60) * 100);
+      var hoursAngle = (360 / 100) * ((hours / 12) * 100);
 
+      time.push(hours,minutes,seconds);
+
+      hands[0].style.transform= `rotate(${hoursAngle}deg)`;
+      hands[1].style.transform= `rotate(${minutesAngle}deg)`;
+      hands[2].style.transform= `rotate(${secondsAngle}deg)`;
+    }, 1000);
   </script>
 </body>
 </html>
