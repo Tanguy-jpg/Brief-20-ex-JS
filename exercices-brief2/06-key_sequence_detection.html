@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <script>
+    let secretCodeKeys = ["80", "79", "78", "69", "89"]
+    let frappes = [];
+
+    document.addEventListener('keydown', logKey);
+
+    function logKey(e) {
+    frappes.length<secretCodeKeys.length? frappes.push(`${e.keyCode}`):(frappes=[] ,frappes.push(`${e.keyCode}`));  // ajoute la valeur de la "touche appuyée" dans le tableau
+    JSON.stringify(frappes) === JSON.stringify(secretCodeKeys)? cornify_add():'';                                   // [frappes], jusqu'à ce que le tableau atteigne le nombre maximum
+                                                                                                                    // de frappes (secretCodeKeys.lenght). Si nombre max est atteint,
+                                                                                                                    // on vide le tableau. Ensuite, on vérifie si le tableau [frappes]
+                                                                                                                    // est le même que le tableau [secretCodeKeys], si oui, on execute
+                                                                                                                    //la fonction cornify_add().
+    }                                                 
+  </script>                                                                                                        
+</body>
+</html>
