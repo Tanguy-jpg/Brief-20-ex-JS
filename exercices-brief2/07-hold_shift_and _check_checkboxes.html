@@ -96,10 +96,25 @@
   </div>
 
   <script>
-    const pressed = false;
-    const hold = (e)=>(`${e.keyCode}`=='16'? console.log(pressed):console.log(!pressed));
+    let pressed = false;
+    let a 
+    let b 
 
+    const hold = (e)=>(`${e.keyCode}` =='16'? pressed=true:pressed=false);
     window.addEventListener("keydown",hold);
+
+    const unHold = (e)=>(`${e.keyCode}` =='16'? pressed=false:pressed=false);
+    window.addEventListener("keyup",unHold);
+
+    const boxs = document.querySelectorAll('.inbox input[type="checkbox"]');
+    var boxsArr = Array.from(boxs);
+
+    for(let i=0; i<boxs.length; i++){
+      boxs[i].addEventListener("click", function(){
+       // pressed==true? (b.splice(0,1,boxs[i]),console.log(b)) : (a.splice(0,1,boxs[i]),console.log(a));
+       pressed==true? (b=boxs[i] ,console.log(b)) : (a=boxs[i],console.log(a));
+      })
+    }
   </script>
 </body>
 </html>
