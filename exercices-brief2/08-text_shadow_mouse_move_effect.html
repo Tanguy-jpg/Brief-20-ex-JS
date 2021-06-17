@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Mouse Shadow</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
@@ -35,10 +35,27 @@
   </style>
 
   <script>
-    document.body.onmousemove = event => {
-      $('h1').css(`text-shadow: ${event.clientX}px ${event.clientY}px 0 rgb(206, 84, 84);`)
-  // ${event.clientX} | ${event.clientY}
-}
+    const H = document.querySelector('h1');
+
+    let width= $('body').css("width");
+    let heigh= $('body').css("height");
+    let arrWidth= Array.from(width);
+    let arrHeight= Array.from(heigh);
+    arrHeight.pop();
+    arrHeight.pop();
+    arrWidth.pop();
+    arrWidth.pop();
+    arrWidth = arrWidth.join('')
+    arrHeight = arrHeight.join('')
+    
+
+    document.querySelector('div.hero').onmousemove = event => {
+      H.style.textShadow = `${event.clientX - (arrWidth/2)}px ${event.clientY - (arrHeight/2)}px 10px rgb(108, 206, 84),
+                            ${event.clientX - (arrWidth/2)}px 10px 10px rgb(0, 0, 0),
+                            ${event.clientX - (arrWidth/2)}px 10px 10px rgb(0, 0, 0),
+                            10px ${event.clientY - (arrHeight/2)}px 10px rgb(255, 247, 0),
+                            10px ${event.clientY - (arrHeight/2)}px 10px rgb(255, 247, 0)`;
+  }
   </script>
 </body>
 </html>
