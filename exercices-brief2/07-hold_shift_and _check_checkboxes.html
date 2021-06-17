@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Hold Shift to Check Multiple Checkboxes</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 </head>
 <body>
   <style>
@@ -96,25 +97,55 @@
   </div>
 
   <script>
+    const boxs = document.querySelectorAll('.inbox input[type="checkbox"]');  
+    const boxss = Array.from(boxs);
     let pressed = false;
-    let a 
-    let b 
+    let selected = [];
+    const reload = ()=> $(boxs).prop('checked', false);
+    window.addEventListener("load", reload);
 
+    const clearArr = ()=>( $('.inbox input[type="checkbox"]').removeClass("one two"), (selected=[])); // clearArr() pour retirer toute les classes.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const hold = (e)=>(`${e.keyCode}` =='16'? pressed=true:pressed=false);
     window.addEventListener("keydown",hold);
-
-    const unHold = (e)=>(`${e.keyCode}` =='16'? pressed=false:pressed=false);
+    const unHold = (e)=>(`${e.keyCode}` =='16'? pressed=false:pressed=false);     //Si shift est enfoncé, pressed = true
     window.addEventListener("keyup",unHold);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    const boxs = document.querySelectorAll('.inbox input[type="checkbox"]');
-    var boxsArr = Array.from(boxs);
 
     for(let i=0; i<boxs.length; i++){
+      const addRemove = (n)=>( $('.inbox input[type="checkbox"]').hasClass(n)? (clearArr(),boxss[i].classList.add(n),selected.push(i)) : (boxss[i].classList.add(n),selected.push(i)));
+
       boxs[i].addEventListener("click", function(){
-       // pressed==true? (b.splice(0,1,boxs[i]),console.log(b)) : (a.splice(0,1,boxs[i]),console.log(a));
-       pressed==true? (b=boxs[i] ,console.log(b)) : (a=boxs[i],console.log(a));
+       pressed==true? (addRemove('two')) : (addRemove('one'));
+        console.log(boxss+ '  '+ selected);
+
+       $(boxss).hasClass('one') && $(boxss).hasClass('two')?  $(boxss.slice(selected[0],selected[1])).prop('checked', true) :'';
+       $(boxss).hasClass('one') && $(boxss).hasClass('two')?  $(boxss.slice(selected[1],selected[0])).prop('checked', true) :'';
       })
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const apply = ()=>( ($('.inbox input[type="checkbox"]').hasClass("one")) && ($('.inbox input[type="checkbox"]').hasClass("two"))?
+                           ($('input[type="checkbox"].one').nextUntil($('input[type="checkbox"].two')).prop('checked', true))  :
+                            '' ) ;
+
+    //($('.inbox input[type="checkbox"].one~.inbox input[type="checkbox"].two').prop('checked', true))
+
+    //$( "#term-2" ) .nextUntil( "dt" )  .css( "background-color", "red" );
+    //($('.inbox input[type="checkbox"]').hasClass("one")) && ($('.inbox input[type="checkbox"]').hasClass("two")) ?
   </script>
 </body>
 </html>
