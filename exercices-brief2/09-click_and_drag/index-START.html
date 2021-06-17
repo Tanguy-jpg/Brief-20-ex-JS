@@ -51,7 +51,7 @@
       if(!clicked) return;
       e.preventDefault();
       const x = e.pageX - items.offsetLeft;
-      const walk = (x - startX) * 3;
+      const walk = (x - startX) * 1.5;
       items.scrollLeft = scrollLeft - walk;
     }
 
