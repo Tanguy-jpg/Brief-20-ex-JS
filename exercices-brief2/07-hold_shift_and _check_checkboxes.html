@@ -101,6 +101,7 @@
     const boxss = Array.from(boxs);
     let pressed = false;
     let selected = [];
+    
     const reload = ()=> $(boxs).prop('checked', false);
     window.addEventListener("load", reload);
 
@@ -121,31 +122,9 @@
        pressed==true? (addRemove('two')) : (addRemove('one'));
         console.log(boxss+ '  '+ selected);
 
-       $(boxss).hasClass('one') && $(boxss).hasClass('two')?  $(boxss.slice(selected[0],selected[1])).prop('checked', true) :'';
-       $(boxss).hasClass('one') && $(boxss).hasClass('two')?  $(boxss.slice(selected[1],selected[0])).prop('checked', true) :'';
+       $(boxss).hasClass('one') && $(boxss).hasClass('two')?  ($(boxss.slice(selected[0],selected[1])).prop('checked', true),$(boxss.slice(selected[1],selected[0])).prop('checked', true)) :'';
       })
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    const apply = ()=>( ($('.inbox input[type="checkbox"]').hasClass("one")) && ($('.inbox input[type="checkbox"]').hasClass("two"))?
-                           ($('input[type="checkbox"].one').nextUntil($('input[type="checkbox"].two')).prop('checked', true))  :
-                            '' ) ;
-
-    //($('.inbox input[type="checkbox"].one~.inbox input[type="checkbox"].two').prop('checked', true))
-
-    //$( "#term-2" ) .nextUntil( "dt" )  .css( "background-color", "red" );
-    //($('.inbox input[type="checkbox"]').hasClass("one")) && ($('.inbox input[type="checkbox"]').hasClass("two")) ?
   </script>
 </body>
 </html>
