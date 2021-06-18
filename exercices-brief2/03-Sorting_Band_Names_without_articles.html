@@ -46,48 +46,19 @@
   <ul id="bands"></ul>
 
 <script>
-  const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+const ul = document.querySelector('#bands');
 
-////////////////// J'ai vraiment essayé mais j'ai pas réussi, donc j'ai fini par regardé la solution.. 
-////////////////// je pense pas que j'aurai pu y arriver seul, et comme je ne veux pas faire de copié/collé, je vais laissé mon code tel quel
-////////////////// j'ai quand même réussi à moitié.. 😆 et surtout j'ai fais des recherches pour ben comprendre la solution.
+const strip = (e)=>(e.replace(/^(a |the |an )/i, ''));
 
-    const ul = document.querySelector('#bands'); //définir l'endroit (ici: ul#bands) où va aller la liste contenue dans le tableau souhaité(ici: bands)
-    const bandListed = []; //définir le tableau dans lequel on va stocker le nouvel ordre
-    const ordre = [];
-    bands.sort();
+const bandsListed = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
 
-    for (let i=0; i<bands.length; i++){
-      let s = bands[i].split(" ");
-      let v = bands[i].split(" ");
-      ordre.push(v);
-      bandListed.push(s);                                             //Split(détache les mots) de bands, puis envoie le tableau dans banListed
-      s[0]==="The" || s[0]==="A" || s[0]==="An"? s.shift():'';        //Supprime les premier mots si ils sont "the" "A" ou "An"
-    }
-
-    bandListed.sort();          //trie le nouveau tableau sans les articles
-
-    for (let i=0; i<bands.length; i++){
-    console.log(i+' '+bandListed[i][0]);
-    console.log(i+' '+ordre[i][0]);
-}
-
-    // for (let i=0; i<bands.length; i++){
-    //   bandListed[i][bandListed[i][length-1]];
-    // }
-
-    for (let i=0; i<bands.length; i++){
-      bands.splice(i,1,bandListed[i]);         //réatribue les place aux elements dans l'ordre
-    } 
-
-
-    for (let i=0; i<bands.length; i++){
-      let li = document.createElement('li');              //crée l'élément li et le "push" dans ul
-      li.appendChild(document.createTextNode(bands[i].join(' ')));
+for (let i=0; i<bands.length; i++){
+      let li = document.createElement('li');              
+      li.appendChild(document.createTextNode(bandsListed[i]));
       ul.appendChild(li);
     }
 </script>
 
 </body>
 </html>
- 
