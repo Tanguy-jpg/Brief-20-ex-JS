@@ -87,9 +87,9 @@
       let minutes = date.getMinutes();
       let hours = date.getHours();
 
-      var secondsAngle = (360 / 100) * ((seconds / 60) * 100);
-      var minutesAngle = (360 / 100) * ((minutes / 60) * 100);
-      var hoursAngle = (360 / 100) * ((hours / 12) * 100);
+      var secondsAngle = 360 * (seconds / 60);
+      var minutesAngle = 360 * (minutes / 60);
+      var hoursAngle = 360 * (hours / 12);
 
       time.push(hours,minutes,seconds);
 
